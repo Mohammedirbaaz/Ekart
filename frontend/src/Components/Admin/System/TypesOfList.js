@@ -1,12 +1,8 @@
-import React from "react";
-// import CardView from '../staticComp/CardView';
+import React,{useState,useEffect} from "react";
 import Footer from '../../staticComp/Footer';
 import Nav from '../../staticComp/Nav';
-import { useNavigate } from "react-router-dom";
-// import '../../Styles/AdminHome.css'
 
-function AdminCustomer(params) {
-    
+function TypesOfList(params) {
     return(
         <div className="AdminHome">
             <div>{<Nav/>}</div>
@@ -17,4 +13,4 @@ function AdminCustomer(params) {
         </div>
     )
 }
-export default AdminCustomer;
+export default TypesOfList;

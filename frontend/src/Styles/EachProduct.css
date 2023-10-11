@@ -1,0 +1,25 @@
+.each-footer
+{
+    position:fixed;
+    bottom:0%;
+    width: 100%;
+}
+.myproduct-item{
+    width: 50%;
+    margin:2% 25%;
+}
+.item-body{
+    position: inherit;
+    width: 96%;
+    background-color: azure;
+    margin: 1%;
+}
+.row{
+    position: relative;
+    width: 100%;
+    height: 5vh;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+}

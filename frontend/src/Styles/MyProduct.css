@@ -1,0 +1,128 @@
+.card-view-parent
+{
+    position: relative;
+    width: 80%;
+    min-height: 50vh;
+    /* background-color: rgb(255, 120, 120); */
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    left: 10%;
+    /* top:5%; */
+    align-items: center;
+}
+
+.AdminHome{
+    position: relative;
+    width: 100%;
+    height: 110vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+
+.plus
+{
+    position: sticky;
+    top:80%;
+    left:80%;
+    font-size: 250%;
+    background-color: rgb(154, 255, 141);
+    padding: 1% 1.5%;
+    border-radius: 65%;
+    color: white;
+    z-index: 1;
+
+
+}
+
+.addproduct
+{
+    position: relative;
+    width: 70%;
+    height: auto;
+    background-color: antiquewhite;
+    left:10%;
+    top:-20%;
+    display: none;
+}
+
+.images{
+    position: relative;
+    width: 100%;
+    height: 20vh;
+    /* background-color: aqua; */
+    overflow: auto;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-direction: row;
+}
+
+.img{
+    position: relative;
+    width:23%;
+    height: 90%;
+    background-color: rgb(255, 223, 223);
+    /* margin: 1%; */
+    border-radius: 5px;
+}
+.table
+{
+    position: relative;
+    width: 100%;
+}
+.table td{
+    width: 50%;
+    /* background-color: aqua; */
+    text-align: center;
+}
+.btn{
+    outline: none;
+    background-color: rgb(59, 188, 59);
+    color: white;
+    padding: 1%;
+    margin:2% 0% 2% 45%;
+    border: none;
+    border-radius: 5px;
+}
+
+.myproduct{
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    align-items: center;
+    width: 96%;
+    margin: 2%;
+}
+.myproduct-item
+{
+    position: relative;
+    width: 250px;
+    min-height: 300px;
+    margin: 1% 2%;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    justify-content: top;
+    align-items: center;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+.myproduct-item:hover{
+    cursor: pointer;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.39);
+
+}
+.item-images
+{
+    position: relative;
+    width: 100%;
+    height: 200px;
+    background-color: rgb(224, 224, 224);
+}
+.item-body{
+    text-align: center;
+}

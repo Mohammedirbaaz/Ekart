@@ -1,0 +1,13 @@
+.card-view
+{
+    position: relative;
+    background-color: rgb(202, 202, 255);
+    text-align: center;
+    width: 28%;
+    border-radius: 5px;
+    margin:1%;
+}
+.card-view:hover
+{
+    cursor: pointer;
+}

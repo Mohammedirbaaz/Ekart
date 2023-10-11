@@ -1,0 +1,109 @@
+.register-bg-card,.register-bg-card-new
+{
+    
+    position: relative;
+    margin-left:25%;
+    margin-top: 10vh;
+    width:50%;
+    height: auto;
+    background-color: rgb(255, 255, 255);
+    border-radius: 10px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+#orig{
+    display: none;
+}
+.register-bg-card-new{
+    height: 30vh;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+}
+.register-settype
+{
+    width: 30%;
+    background-color: rgb(255, 112, 112);
+    color: white;
+    border: none;
+    border-radius: 10px;
+    font-size: large;
+    padding: 2% 0% 2% 0%;
+}
+
+.register-bg-card-head
+{
+    position: relative;
+    height: 7vh;
+    width: 25%;
+    margin: 0% 37% 0% 37%;
+    border-radius: 0px 0px 10px 10px;
+    background-color: rgb(255, 112, 112);
+    text-align: center;
+}
+.register-bg-card-head-text
+{
+    position: relative;
+    color: white;
+    top:20%;
+    background-color: rgb(255, 112, 112);
+}
+.register-bg-card-body
+{
+    position: relative;
+    height: auto;
+    padding: 2% 0% 2% 0%;
+    width: 100%;
+    background-color: rgb(255, 255, 255);
+}
+.register-bg-card-input
+{
+    position: relative;
+    width: 50%;
+    height: 5vh;
+    margin-left: 25%;
+    padding-top: 1%;
+    padding-bottom: 1%;
+    margin-top: 1%;
+    margin-bottom: 1%;
+    outline: none;
+    border: none;
+    background-color: rgb(228, 228, 228);
+    border-radius: 10px;
+}
+.submitbtn
+{
+    width: 25%;
+    margin-left: 37%;
+    border-radius: 5px;
+    background-color: rgb(195, 227, 227);
+    padding: 1%;
+}
+
+.register-viewbtn{
+    position: relative;
+    width: 10%;
+    height: 5vh;
+    background-color: rgb(85, 217, 240);
+    top:10vh;
+    left:45%;
+    outline:none;
+    border:none;
+    color:white;
+    transition: all 2s;
+    perspective: 1000px; 
+}
+
+.register-viewbtn:hover{
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    cursor: pointer;
+    transform: rotateX(-180deg);
+}
+
+.register-bg-card-login{
+    position:relative;
+    left:37%;
+    outline: none;
+    text-decoration: none;
+    background-color: white;
+} 

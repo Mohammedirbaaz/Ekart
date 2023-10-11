@@ -5,18 +5,18 @@ import Nav from '../staticComp/Nav';
 import { useNavigate } from "react-router-dom";
 import '../../Styles/AdminHome.css'
 
-function CustomerHome(params) {
+function AdminHome(props) {
     
     return(
         <div className="AdminHome">
-            <div>{<Nav first={"home"} second={"orders"} third={"carts"} usertype={"customer"}/>}</div>
+            <div>{<Nav first={"customer"} second={"System"} third={"Seller"} usertype={"admin"}/>}</div>
             <div className="card-view-parent" >
-                <CardView name={'product'} links={'customer/product'}/>
-                <CardView name={'orders'} links={'customer/orders'}/>
-                <CardView name={'carts'} links={'customer/carts'}/>
+                <CardView name={'customer'} links={'admin/customer'}/>
+                <CardView name={'System'} links={'admin/system'}/>
+                <CardView name={'Sellers'} links={'admin/seller'}/>
             </div>
             <div>{<Footer/>}</div>
         </div>
     )
 }
-export default CustomerHome;
+export default AdminHome;

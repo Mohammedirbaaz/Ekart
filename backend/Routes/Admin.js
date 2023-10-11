@@ -66,6 +66,10 @@ router.get("/add",async(req,res)=>{
         ).then(ress=>{console.log(ress)}).catch(er=>{console.log(er)})*/
 });
 
+router.get('/getdetails',(req,res)=>{
+    CategorySchema.find({}).then(ress=>res.send(ress)).catch(err=>res.send(err));
+})
+
 
 
 module.exports =router;
