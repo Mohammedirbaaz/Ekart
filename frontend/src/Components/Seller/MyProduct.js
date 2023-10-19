@@ -156,6 +156,7 @@ function SellerMyProduct(params) {
 
         var divs=document.getElementById("addproductdiv");
         divs.style.display="none";
+        window.location.href=window.location.href;
     }
 
     return(
@@ -238,7 +239,7 @@ function SellerMyProduct(params) {
                 </div>
                 <div className="plus" onClick={()=>create()}>+</div>
             </div>
-            <div>{<Footer/>}</div>
+            <div className='each-footer'>{<Footer/>}</div>
         </div>
     )
 }

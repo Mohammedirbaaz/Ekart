@@ -1,11 +1,13 @@
 const router=require('express').Router();
 const CategorySchema=require('../Models/category.model');
+const UserSchema=require("../models/useraccount.model");
 
-router.get("/create",async (req,res)=>{
+router.post('/create',(req,res)=>{
+    console.log(req.body);
     var obj=
     {
-       CategoryName:req.body.type,
-       CategoryImageLink:req.body.link,
+       CategoryName:req.body.CategoryName,
+       CategoryImageLink:req.body.CategoryImageLink,
     }
     var categorysaver=new CategorySchema(obj);
     categorysaver.save().then(ress=>{
@@ -68,6 +70,22 @@ router.get("/add",async(req,res)=>{
 
 router.get('/getdetails',(req,res)=>{
     CategorySchema.find({}).then(ress=>res.send(ress)).catch(err=>res.send(err));
+})
+
+router.get('/customerdetails',async(req,res)=>{
+    var data=await UserSchema.find({usertype:"customer"});
+    if(data)
+    {
+        res.send(data);
+    }else res.status(404).send("error");
+})
+
+router.get('/sellerdetails',async(req,res)=>{
+    var data=await UserSchema.find({usertype:"seller"});
+    if(data)
+    {
+        res.send(data);
+    }else res.status(404).send("error");
 })
 
 

@@ -24,7 +24,7 @@ function EachProduct()
     
     return(
         <div className="eachProduct-parent">
-            <div>{<Nav first={"Home"} second={"My Product"} third={"Monitization"} fourth={"Statistics"}/>}</div>
+            <div>{<Nav first={"product"} second={"order"} third={"carts"}/>}</div>
             <div className="myproduct-item1" >
                 <div className="item-images"></div>
                 {/* {(myProduct!={}) ?<></> :  */}
