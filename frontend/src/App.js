@@ -17,14 +17,14 @@ import CustomerEachProduct from './Components/Customer/EachProduct';
 import axios from 'axios'
 
 function App() {
-  const [props, setprops] = useState("admin");
-  // const [data, setdata] = useState({})
+  // const [props, setprops] = useState("admin");
+  const [data, setdata] = useState({})
 
 
   useEffect(()=>{
-    // axios.get('http://localhost:5000/aboutme',{withCredentials:true}).then(res=>{
-    //       setdata(res.data[0]);
-    //   }).catch(err=>{console.log(err)});
+    axios.get('http://localhost:5000/aboutme',{withCredentials:true}).then(res=>{
+          setdata(res.data[0]);
+      }).catch(err=>{console.log(err)});
     
   },[])
 
@@ -34,13 +34,13 @@ function App() {
       <Router>
         <Routes>
           <Route exact path='/' element={
-        (props=="customer") ? <CustomerHome/>
-        : (props=="seller") ? <SellerHome/>
+        (data.usertype=="customer") ? <CustomerHome/>
+        : (data.usertype=="seller") ? <SellerHome/>
         : <AdminHome/>
       } />
 
-        <Route path='/register' element={<Register usertype={props}/>} />
-        <Route path='/login' element={<Login usertype={props}/>} />
+        <Route path='/register' element={<Register usertype={data.usertype}/>} />
+        <Route path='/login' element={<Login usertype={data.usertype}/>} />
 
         <Route exact path='/seller/MyProduct' element={<SellerMyProduct/>}/>
         <Route exact path='/seller/MyProduct/:id' element={<SellerEachProduct/>}/>

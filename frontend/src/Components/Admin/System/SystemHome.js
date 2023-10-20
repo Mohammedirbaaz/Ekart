@@ -37,7 +37,6 @@ function AdminSystem(params) {
                 addtype();
                 window.location.href=window.location.href;
             }).catch(err=>alert(err));
-            
         }
     }
     

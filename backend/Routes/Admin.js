@@ -20,7 +20,7 @@ router.post('/create',(req,res)=>{
 });
 
 
-router.get("/add",async(req,res)=>{
+router.post("/add",async(req,res)=>{
 
     var arr=req.body.IdType;
     var type=req.body.type;
