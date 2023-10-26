@@ -16,6 +16,15 @@ function CustomerProduct(params) {
         }).catch(err=>{console.log(err)});
 
     },[]);
+
+    function onaddtocart(id){
+        var obj={
+          id:id  
+        };  
+        axios.post("http://localhost:5000/customer/addtocart",obj,{withCredentials:true}).then(res=>{
+            alert("added to cart")
+        }).catch(err=>{alert("error while adding to cart")});
+    }
     
     
 
@@ -25,12 +34,17 @@ function CustomerProduct(params) {
 
             <div className="myproduct">
                 {Product.map((prod)=>
-                    <div className="myproduct-item" key={prod._id} onClick={()=>{navigator('/customer/product/'+prod._id)}}>
-                        <div className="item-images"></div>
-                        <div className="item-body">
+                    <div className="myproduct-item" key={prod._id} >
+                        <div className="item-images" onClick={()=>{navigator('/customer/product/'+prod._id)}}></div>
+                        <div className="item-body" onClick={()=>{navigator('/customer/product/'+prod._id)}}>
                             <p>{(prod.brand.length>30)? (prod.brand.substring(0, 30) + '...') : prod.brand }</p>
                             <p>{(prod.about.length>30)? (prod.about.substring(0, 30) + '...') : prod.about }</p>
                             <p>₹{prod.price}</p>
+                            
+                        </div>
+                        <div className="item-body">
+                            <button className="btnincardview inps2" onClick={()=>{onaddtocart(prod._id)}}>Add to Cart</button>
+                            <button className="btnincardview inps2">Buy Now</button>
                         </div>
                     </div>
                 )}
