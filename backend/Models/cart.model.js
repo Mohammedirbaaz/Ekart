@@ -3,7 +3,7 @@ const Mongoose=require('mongoose');
 const schema=Mongoose.Schema;
 
 const cartschema=new schema({
-    prodid:{type:String,required:true},
+    prodid:{type:Array,required:true},
     userid:{type:String,required:true},
 },{ 
     strict: false 

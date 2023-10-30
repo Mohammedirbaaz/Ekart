@@ -14,7 +14,6 @@ function CustomerProduct(params) {
         axios.get("http://localhost:5000/customer/getproduct",{withCredentials:true}).then(res=>{
             setProduct(res.data);
         }).catch(err=>{console.log(err)});
-
     },[]);
 
     function onaddtocart(id){
@@ -22,7 +21,8 @@ function CustomerProduct(params) {
           id:id  
         };  
         axios.post("http://localhost:5000/customer/addtocart",obj,{withCredentials:true}).then(res=>{
-            alert("added to cart")
+            if(res=="added to cart") alert("added to cart");
+            else alert(res.data)
         }).catch(err=>{alert("error while adding to cart")});
     }
     

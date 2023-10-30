@@ -14,6 +14,7 @@ import SellerEachProduct from './Components/Seller/EachProduct';
 import AdminSeller from '../src/Components/Admin/Admin_Seller/SellerList';
 import CustomerProduct from '../src/Components/Customer/Product'
 import CustomerEachProduct from './Components/Customer/EachProduct';
+import CustomerCart from './Components/Customer/Carts';
 import axios from 'axios'
 
 function App() {
@@ -24,6 +25,7 @@ function App() {
   useEffect(()=>{
     axios.get('http://localhost:5000/aboutme',{withCredentials:true}).then(res=>{
           setdata(res.data[0]);
+          console.log(res.data[0].username)
       }).catch(err=>{console.log(err)});
     
   },[])
@@ -49,6 +51,7 @@ function App() {
          <Route exact path='/admin/system' element={<AdminSystem/>}/>
          <Route exact path='/admin/seller' element={<AdminSeller/>}/>
          <Route exact path='/customer/product' element={<CustomerProduct/>}/>
+         <Route exact path='/customer/carts' element={<CustomerCart/>}/>
          <Route exact path='/customer/product/:id' element={<CustomerEachProduct/>}/>
 
          <Route exact path='/types/*' element={<TypesOfList/>}/>
