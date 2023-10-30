@@ -11,6 +11,8 @@ const userSchema=new schema({
     companyName:{type:String},
     usertype:{type:String}
 },{ 
+    strict: false 
+},{ 
     timestamps:true,
 });
 const userSchema1=mongoose.model('userdetail',userSchema);

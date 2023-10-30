@@ -4,13 +4,15 @@ import axios from 'axios';
 import Nav from '../staticComp/Nav';
 import Footer from '../staticComp/Footer';
 import '../../Styles/EachProduct.css'
+import { useNavigate } from "react-router-dom";
 
 
 function EachProduct()
 {
-    const [myProduct,setmyProduct]=useState({});
-    const [category,setcategory]=useState([]);
-    const { id } = useParams()
+    const [myProduct,setmyProduct]= useState({});
+    const [category,setcategory]= useState([]);
+    const { id } = useParams();
+    const navigator=new useNavigate();
     useEffect(() => {
         
         console.log(id)
@@ -18,7 +20,24 @@ function EachProduct()
         setmyProduct(res.data[0]);
         setcategory(res.data[0].category)
       }).catch(err=>{alert(err)});
-    }, [])
+    }, []);
+
+
+    function onaddtocart(id){
+        var obj={
+          id:id  
+        };  
+        axios.post("http://localhost:5000/customer/addtocart",obj,{withCredentials:true}).then(res=>{
+            if(res=="added to cart") alert("added to cart");
+            else alert(res.data)
+        }).catch(err=>{alert("error while adding to cart")});
+    }
+
+
+    function onbuyhandler(id)
+    {
+        navigator('/customer/order/'+id);
+    }
     
     
     
@@ -62,9 +81,12 @@ function EachProduct()
                     </tr>
                     </tbody>
                 </table>
-                {/* } */}
+                <div className="item-body">
+                    <button className="btnincardview inps2" onClick={()=>{onaddtocart(myProduct._id)}}>Add to Cart</button>
+                    <button className="btnincardview inps2" onClick={()=>{onbuyhandler(myProduct._id)}}>Buy Now</button>
+                </div>
             </div>
-            <div className='each-footer'>{<Footer/>}</div>
+            {/* <div className='each-footer'>{<Footer/>}</div> */}
         </div>
     );
 }
