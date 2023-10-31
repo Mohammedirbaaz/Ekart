@@ -11,7 +11,7 @@ import '../../Styles/CustomerOrder.css'
 function CustomerOrder()
 {
     const [myProduct,setmyProduct]= useState({});
-    const { id } = useParams();
+    const { id,quant } = useParams();
     const [myData,setMyData]=useState({});
     const [myOrder, setMyOrder]= useState({
         quantity:0,
@@ -27,8 +27,8 @@ function CustomerOrder()
     const [pincode,setpincode]=useState();
     const [townorcity,settownorcity]=useState();
     const [state,setstate]=useState();
-
-
+    const [isaddhere,setisaddhere]=useState(false);
+    const [addclicked,setaddclicked]=useState();
 
 
     const navigator=new useNavigate();
@@ -40,15 +40,49 @@ function CustomerOrder()
       axios.get("http://localhost:5000/aboutme",{withCredentials:true}).then(res=>{
         setMyData(res.data[0]);
         console.log(res.data[0]);
+        setisaddhere((res.data[0].address.length>0)? true:false);
       }).catch(err=>{alert(err)});
 
     }, []);
 
 
-    function add_address()
+    function onaddaddress()
     {
-        
+        var obj={
+            name:name,
+            doorno:doorno,
+            street:street,
+            area:area,
+            pincode:pincode,
+            townorcity:townorcity,
+            state:state
+        }
+
+
+        axios.post("http://localhost:5000/customer/addaddress",obj,{withCredentials:true}).then(res=>{
+            alert("added new address");
+            window.location.reload();
+
+        }).catch(err=>{alert("can't add address")})
     }
+
+    function onorder()
+    {
+        var obj={
+            prodid:id,
+            quantity:quant,
+            addressindex:addclicked
+        };
+        axios.post("http://localhost:5000/customer/addorder",obj,{withCredentials:true}).then(res=>{
+            alert("your order is now complete!");
+            // window.location.href=;
+
+        }).catch(err=>{alert("something went wrong")})
+    }
+
+
+
+
 
     
     return(
@@ -90,21 +124,31 @@ function CustomerOrder()
                     <td><input type='text' className='input1' onChange={(e)=>{setstate(e.target.value)}}/></td>
                 </tr>
 
-                <div className='btns-flex'>
+                <tr className='btns-flex'>
                     <button className='btns-inside' onClick={()=>{document.getElementById("create-address-id").style.display="none"}}>Cancel</button>
-                    <button className='btns-inside'>Add</button>
-                </div>
+                    <button className='btns-inside' onClick={()=>{onaddaddress();}}>Add</button>
+                </tr>
             </table>
             <div className='address-section'>
                 <p className='address-header'>Delivery Address</p>
                 <div className='address-content' id='address-element'>
-                    {(!myData.address) ? <p className='add-address' onClick={()=>{document.getElementById("create-address-id").style.display="block"}}> Add Address</p> : 
-                    <p>yes data available</p>}
+                    {console.log(myData.address)}
+                    {(isaddhere) && 
+                     <>
+                        {myData.address.map((ad,index)=>
+                            <div key={index}>
+                                <input type={"radio"} name={"address"} value={index} onChange={(e)=>{setaddclicked(e.target.value); document.getElementById("orderbtnid").style.display="block" }}/>{ad.name}
+                                <p>{ad.doorno},{ad.street},{ad.area},{ad.pincode},{ad.townorcity},{ad.state}</p>
+                            </div>
+                        )}
+                    </> }
+                    <div className='add-address' onClick={()=>{document.getElementById("create-address-id").style.display="block";}}> Add Address</div> 
                 </div>
             </div>
             <div className='payment-section'>
-
+                
             </div>
+            <button className='btns-side1 add-address' id='orderbtnid' onClick={()=>{onorder()}}>Order</button>
             {/* <div className='each-footer'>{<Footer/>}</div> */}
         </div>
     );

@@ -28,3 +28,21 @@
     padding:1% 1%;
     /* background-color: rebeccapurple; */
 }
+
+.quantitydiv{
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+.ops{
+    width: 9%;
+    /* height: 10%; */
+    margin: 0% 2% 0% 2%;
+    /* padding: 1%; */
+    background-color: rgb(159, 159, 159);
+    font-size: 150%;
+    border-radius: 50%;
+
+}

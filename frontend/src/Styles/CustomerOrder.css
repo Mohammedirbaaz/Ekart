@@ -10,6 +10,7 @@
     flex-direction: column;
     justify-content: left;
     align-items: left;
+    padding:0% 0% 1% 0%;
 }
 
 .address-header{
@@ -17,7 +18,7 @@
     height: 10%;
     width: 90%;
     /* background-color: red; */
-    padding: 1% 0% 1% 1%;
+    padding: 0% 0% 0% 1%;
     font-weight: bold;
     font-family: Arial, Helvetica, sans-serif;
 }
@@ -28,14 +29,16 @@
     width: 90%;
     left: 5%;
     background-color: aqua;
-    padding: 1% 0% 1% 1%;
+    padding: 0% 0% 1% 0%;
 }
 
 .add-address
 {
-    width: 15%;
-    background-color: rebeccapurple;
-    margin-left:42%;
+    width:9%;
+    background-color: rgb(108, 108, 108);
+    margin-left:40%;
+    padding: 1%;
+    border-radius: 5px;
 }
 
 .create-address{
@@ -63,7 +66,7 @@
     position: relative;
     display: flex;
     flex-direction: row;
-    justify-content: right;
+    justify-content: center;
     align-items: center;
     /* background-color: rebeccapurple; */
 }
@@ -78,4 +81,12 @@
     background-color: blue;
     color: white;
     border-radius: 5px;
+}
+.btns-side1{
+    position: absolute;
+    top:70vh;
+    left: 2vw;
+    outline: none;
+    border: none;
+    display: none;
 }

@@ -2,6 +2,7 @@ const router=require('express').Router();
 const ProductSchema=require('../Models/product.model');
 const CartSchema=require('../Models/cart.model');
 const auth =require('../Middleware/auth');
+const UserSchema=require("../models/useraccount.model");
 
 router.route("/getproduct").get(async(req,res)=>{
     var data=await ProductSchema.find({});
@@ -101,6 +102,41 @@ router.route("/getcart").get(auth,async(req,res)=>{
     }
     res.send(totaldata);
 });
+
+
+router.route("/addaddress").post(auth,async(req,res)=>{
+    var obj={
+        name:req.body.name,
+        doorno:req.body.doorno,
+        street:req.body.street,
+        area:req.body.area,
+        pincode:req.body.pincode,
+        townorcity:req.body.townorcity,
+        state:req.body.state
+    }
+    await UserSchema.findOneAndUpdate({_id:req.userid},{$push:{address:obj}}).then(ress=>{
+        res.send(ress);
+    }).catch(err=>{
+        res.send(err);
+        console.log(err)
+    })
+    return;
+})
+
+router.route("/addorder").post(auth,async(req,res)=>{
+    var obj={
+        prodid:req.body.prodid,
+        quantity:req.body.quantity,
+        addressindex:req.body.addressindex
+    }
+    await UserSchema.findOneAndUpdate({_id:req.userid},{$push:{orders:obj}}).then(ress=>{
+        res.send(ress);
+    }).catch(err=>{
+        res.send(err);
+        console.log(err)
+    })
+    return;
+})
 
 
 

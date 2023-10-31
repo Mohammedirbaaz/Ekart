@@ -57,7 +57,7 @@ function App() {
          <Route exact path='/customer/product/:id' element={<CustomerEachProduct/>}/>
 
          <Route exact path='/types/*' element={<TypesOfList/>}/>
-         <Route exact path='/customer/order/:id' element={<CustomerOrder/>}/>
+         <Route exact path='/customer/order/:id/:quant' element={<CustomerOrder/>}/>
         </Routes>
       </Router>
       

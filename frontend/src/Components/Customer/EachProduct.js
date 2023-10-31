@@ -11,6 +11,8 @@ function EachProduct()
 {
     const [myProduct,setmyProduct]= useState({});
     const [category,setcategory]= useState([]);
+    const [quant,setquant]= useState(1);
+
     const { id } = useParams();
     const navigator=new useNavigate();
     useEffect(() => {
@@ -36,7 +38,7 @@ function EachProduct()
 
     function onbuyhandler(id)
     {
-        navigator('/customer/order/'+id);
+        navigator('/customer/order/'+id+'/'+quant);
     }
     
     
@@ -78,6 +80,17 @@ function EachProduct()
                     <tr className='row'>
                         <td>Category </td>
                         <td>{category[category.length-1]}</td>
+                    </tr>
+                    <tr className='row'>
+                        <td>Quantity</td>
+                        <td>
+                            <div className='quantitydiv'>
+                                <div className='ops' onClick={()=>setquant(quant-1)}>-</div>
+                                <div className='ops1'>{quant}</div>
+                                <div className='ops' onClick={()=>setquant(quant+1)}>+</div>
+
+                            </div>
+                        </td>
                     </tr>
                     </tbody>
                 </table>

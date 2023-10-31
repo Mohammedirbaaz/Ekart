@@ -9,7 +9,9 @@ const userSchema=new schema({
     password:{type:String,required:true},
     companyAddress:{type:String},
     companyName:{type:String},
-    usertype:{type:String}
+    usertype:{type:String},
+    address:{type:Array,required:true},
+    orders:{type:Array,required:true}
 },{ 
     strict: false 
 },{ 
