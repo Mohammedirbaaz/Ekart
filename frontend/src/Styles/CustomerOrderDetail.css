@@ -1,0 +1,41 @@
+.order-list-section{
+    position: relative;
+    width: 96%;
+    height: auto;
+    margin:2%;
+    background-color: antiquewhite;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}
+.noordersfound{
+    position: relative;
+    width: 10%;
+    height: 10%;
+    left: 45%;
+    top: 40vh;
+}
+
+.each-order{
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    width: 400px;
+    max-height: 300px;
+    min-height: 200px;
+    background-color: gainsboro;
+    margin:1%;
+    padding: 1%;
+}
+.order-child{
+    position: relative;
+    width: 170px;
+    height: 100%;
+    margin: 1%;
+    padding: 1%;
+    /* background-color: azure; */
+}

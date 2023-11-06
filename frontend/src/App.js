@@ -15,7 +15,8 @@ import AdminSeller from '../src/Components/Admin/Admin_Seller/SellerList';
 import CustomerProduct from '../src/Components/Customer/Product'
 import CustomerEachProduct from './Components/Customer/EachProduct';
 import CustomerCart from './Components/Customer/Carts';
-import CustomerOrder from './Components/Customer/CustomerOrder'
+import CustomerOrder from './Components/Customer/CustomerOrder';
+import CustomerOrderDetail from './Components/Customer/CustomerOrderDetail'
 import axios from 'axios'
 
 function App() {
@@ -58,6 +59,8 @@ function App() {
 
          <Route exact path='/types/*' element={<TypesOfList/>}/>
          <Route exact path='/customer/order/:id/:quant' element={<CustomerOrder/>}/>
+         <Route exact path='/customer/orders' element={<CustomerOrderDetail/>}/>
+         
         </Routes>
       </Router>
       

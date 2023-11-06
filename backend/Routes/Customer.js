@@ -136,7 +136,29 @@ router.route("/addorder").post(auth,async(req,res)=>{
         console.log(err)
     })
     return;
+});
+
+router.route("/order").get(auth,async(req,res)=>{
+    const mains=await UserSchema.find({_id:req.userid});
+    var arr=mains[0].orders;
+    var resarr=new Array(arr.length);
+    for(var i=0;i<arr.length;i++)
+    {
+        const eachs=await ProductSchema.find({_id:arr[i].prodid});
+        
+        const obj={
+            product:eachs[0],
+            quantity:arr[i].quantity,
+            address:mains[0].address[arr[i].addressindex]
+        }
+        resarr[i]=obj;
+        console.log(obj)
+    }
+    res.send(resarr);
+    return;
+
 })
+
 
 
 

@@ -75,8 +75,6 @@ function CustomerOrder()
         };
         axios.post("http://localhost:5000/customer/addorder",obj,{withCredentials:true}).then(res=>{
             alert("your order is now complete!");
-            // window.location.href=;
-
         }).catch(err=>{alert("something went wrong")})
     }
 
@@ -132,7 +130,6 @@ function CustomerOrder()
             <div className='address-section'>
                 <p className='address-header'>Delivery Address</p>
                 <div className='address-content' id='address-element'>
-                    {console.log(myData.address)}
                     {(isaddhere) && 
                      <>
                         {myData.address.map((ad,index)=>
@@ -142,7 +139,7 @@ function CustomerOrder()
                             </div>
                         )}
                     </> }
-                    <div className='add-address' onClick={()=>{document.getElementById("create-address-id").style.display="block";}}> Add Address</div> 
+                    <div className='add-address' onClick={()=>{document.getElementById("create-address-id").style.display="block";}}> Add New Address</div> 
                 </div>
             </div>
             <div className='payment-section'>
